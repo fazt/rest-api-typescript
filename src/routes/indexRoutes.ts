@@ -8,7 +8,7 @@ class IndexRoutes {
         this.routes();
     }
 
-    public getIndex(req, res): void {
+    public getIndex(req: Request, res: Response): void {
         res.json('Api: /api/posts');
     }
 

@@ -1,5 +1,4 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import compression from 'compression';
@@ -21,12 +20,6 @@ class Server {
     }
 
     public config(): void {
-        const MONGO_URI = 'mongodb://localhost/restapits';
-        mongoose.set('useFindAndModify', false);
-        mongoose.connect(MONGO_URI || process.env.MONGODB_URL, {
-            useNewUrlParser: true,
-            useCreateIndex: true
-        });
         // Settings
         this.app.set('port', process.env.PORT || 4000);
         // middlewares
@@ -53,5 +46,4 @@ class Server {
     }
 }
 
-const server = new Server();
-server.start();
+export { Server } ;
